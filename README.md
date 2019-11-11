@@ -1,18 +1,20 @@
-look https://gist.github.com/szarapka/05ba804dfd1c10ad47bf
+An image that contain the nodejs image of [phusion-passenger](https://github.com/phusion/passenger-docker) to start any vuejs project. 
 
-## build
+## Pull
 
-    $ docker build .
+    $ docker pull szorfein/vue-passenger
 
-## run
+## Run
 
-    $ docker run --rm -p 80:8080 6f15
+    $ docker run szorfein/vue-passenger
 
-## access
+## Customize the image by adding your own vuejs project
+You can modify the value of `URL` like this:
 
-    $ curl -I localhost
+    $ mkdir new && cd new
+    $ docker build --build-arg URL=https://github.com/charlesBochet/cropchat -t szorfein/vue-passenger .
 
-## troubleshooting
+## Troubleshooting
 
 ### Build failed with resolve name (github) failed
 Try to build the image with `--network=host`

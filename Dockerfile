@@ -3,12 +3,10 @@ MAINTAINER Szorfein <szorfein@protonmail.com>
 
 # env
 ENV HOME /root
-ENV PROJECT_URL https://github.com/szorfein/vuejs-webapp
+ARG URL
+ENV PROJECT_URL=${URL:-https://github.com/szorfein/vuejs-webapp}
 
 CMD ["/sbin/my_init"]
-
-# Update ubuntu
-RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold"
 
 # Enable Nginx
 RUN rm -f /etc/service/nginx/down
