@@ -29,9 +29,11 @@ RUN cp -a node_modules /home/app/webapp/
 
 # Generate the dist dir for the production
 WORKDIR /home/app/webapp
-RUN npm run build
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 80
+
+COPY cmd.sh /cmd.sh
+CMD ["/cmd.sh"]

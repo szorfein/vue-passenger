@@ -4,7 +4,12 @@ An image that contain the nodejs image of [phusion-passenger](https://github.com
 
     $ docker pull szorfein/vue-passenger
 
-## Run
+## Run for development
+
+    $ cd vuejs-project
+    $ docker run -e "ENV=DEV" -v $PWD:/home/app/webapp szorfein/vue-passenger
+
+## Run for production
 
     $ docker run szorfein/vue-passenger
 
